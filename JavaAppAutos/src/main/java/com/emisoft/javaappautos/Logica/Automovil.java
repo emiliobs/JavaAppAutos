@@ -1,8 +1,20 @@
 package com.emisoft.javaappautos.Logica;
 
+import javax.annotation.processing.Generated;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Automovil
 {
+    @Id
+    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
     private int IdAuto;
+    
+   @Basic 
     private String modelo;
     private String marca;
     private String motor;
