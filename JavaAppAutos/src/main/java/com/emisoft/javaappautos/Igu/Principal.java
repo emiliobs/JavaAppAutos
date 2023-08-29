@@ -31,7 +31,7 @@ public class Principal extends javax.swing.JFrame
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel3.setText("VENTAS DE AUTOMOVILES");
+        jLabel3.setText("VENTAS DE AUTOMÓVILES");
 
         brnConsultaEditarBaja.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         brnConsultaEditarBaja.setForeground(new java.awt.Color(255, 51, 51));
