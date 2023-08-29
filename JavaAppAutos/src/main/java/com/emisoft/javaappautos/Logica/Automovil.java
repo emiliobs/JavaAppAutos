@@ -1,6 +1,6 @@
 package com.emisoft.javaappautos.Logica;
 
-import javax.annotation.processing.Generated;
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Automovil
+public class Automovil implements Serializable
 {
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE)
-    private int IdAuto;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int id;
     
-   @Basic 
     private String modelo;
     private String marca;
     private String motor;
@@ -26,9 +25,9 @@ public class Automovil
     {
     }
 
-    public Automovil(int IdAuto, String modelo, String marca, String motor, String color, String patente, int cantidadDePuerta)
+    public Automovil(int id, String modelo, String marca, String motor, String color, String patente, int cantidadDePuerta)
     {
-        this.IdAuto = IdAuto;
+        this.id = id;
         this.modelo = modelo;
         this.marca = marca;
         this.motor = motor;
@@ -37,24 +36,14 @@ public class Automovil
         this.cantidadDePuerta = cantidadDePuerta;
     }
 
-    public int getCantidadDePuerta()
+    public int getId()
     {
-        return cantidadDePuerta;
+        return id;
     }
 
-    public void setCantidadDePuerta(int cantidadDePuerta)
+    public void setId(int id)
     {
-        this.cantidadDePuerta = cantidadDePuerta;
-    }
-
-    public int getIdAuto()
-    {
-        return IdAuto;
-    }
-
-    public void setIdAuto(int IdAuto)
-    {
-        this.IdAuto = IdAuto;
+        this.id = id;
     }
 
     public String getModelo()
@@ -106,7 +95,18 @@ public class Automovil
     {
         this.patente = patente;
     }
-    
+
+    public int getCantidadDePuerta()
+    {
+        return cantidadDePuerta;
+    }
+
+    public void setCantidadDePuerta(int cantidadDePuerta)
+    {
+        this.cantidadDePuerta = cantidadDePuerta;
+    }
+
+  
     
     
 }

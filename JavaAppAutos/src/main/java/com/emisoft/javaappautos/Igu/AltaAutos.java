@@ -1,17 +1,22 @@
-
 package com.emisoft.javaappautos.Igu;
 
+import com.emisoft.javaappautos.Logica.Automovil;
+import com.emisoft.javaappautos.Logica.Controladora;
+import javax.swing.JOptionPane;
 
 public class AltaAutos extends javax.swing.JFrame
 {
 
-    
+    Automovil automovil = null;
+    Controladora controladora = null;
+
     public AltaAutos()
     {
+        automovil = new Automovil();
+        controladora = new Controladora();
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -111,6 +116,13 @@ public class AltaAutos extends javax.swing.JFrame
         jButton1.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 51, 51));
         jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -228,7 +240,28 @@ public class AltaAutos extends javax.swing.JFrame
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAltaActionPerformed
     {//GEN-HEADEREND:event_btnAltaActionPerformed
-        // TODO add your handling code here:
+
+        try
+        {
+            //int id = Integer.parseInt(txtId.getText());
+            String modelo = txtModelo.getText();
+            String marca = txtMarca.getText();
+            String motor = txtMotor.getText();
+            String color = txtColor.getText();
+            String patente = txtPatente.getText();
+            int numeroPuertas = Integer.parseInt(txtNumeroPuertas.getText());
+            controladora.AgregarAutomovil(modelo, marca, motor, color, patente, numeroPuertas);
+            
+            JOptionPane.showMessageDialog(null, "Datos Guardado de Forma Exitosa!");
+            
+            this.LimpiarCampos();
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Error en ALta Autos: " + e.getMessage());
+        }
+
+
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirActionPerformed
@@ -236,8 +269,11 @@ public class AltaAutos extends javax.swing.JFrame
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    
-   
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+       LimpiarCampos();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brnConsultaEditarBaja;
@@ -263,4 +299,15 @@ public class AltaAutos extends javax.swing.JFrame
     private javax.swing.JTextField txtNumeroPuertas;
     private javax.swing.JTextField txtPatente;
     // End of variables declaration//GEN-END:variables
+
+    private void LimpiarCampos()
+    {
+        txtColor.setText("");
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtMotor.setText("");
+        txtNumeroPuertas.setText("");
+        txtPatente.setText("");
+        
+    }
 }
