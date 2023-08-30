@@ -258,7 +258,7 @@ public class AltaAutos extends javax.swing.JFrame
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null,"Error en ALta Autos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"Error en Alta Autos: " + e.getMessage());
         }
 
 
