@@ -2,6 +2,7 @@
 package com.emisoft.javaappautos.Logica;
 
 import com.emisoft.javaappautos.Persistencia.ControladoraPersistencia;
+import java.util.List;
 
 public class Controladora
 {
@@ -19,6 +20,11 @@ public class Controladora
        automovil.setCantidadDePuerta(numeroPuertas);
        
        controladoraPersistencia.AgregarAutomovil(automovil);
+    }
+
+    public List<Automovil> TrarListaAutomoviles()
+    {
+        return controladoraPersistencia.TrarListaAutomoviles();
     }
     
     

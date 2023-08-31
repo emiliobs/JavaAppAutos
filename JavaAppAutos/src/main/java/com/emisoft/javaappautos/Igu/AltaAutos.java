@@ -58,6 +58,13 @@ public class AltaAutos extends javax.swing.JFrame
         brnConsultaEditarBaja.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         brnConsultaEditarBaja.setForeground(new java.awt.Color(255, 51, 51));
         brnConsultaEditarBaja.setText("Consulta, Edición y Bajas");
+        brnConsultaEditarBaja.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                brnConsultaEditarBajaActionPerformed(evt);
+            }
+        });
 
         btnAlta.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         btnAlta.setForeground(new java.awt.Color(255, 51, 51));
@@ -170,14 +177,14 @@ public class AltaAutos extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(101, 101, 101))
+                .addGap(108, 108, 108))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel3)
-                .addGap(34, 34, 34)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -243,6 +250,46 @@ public class AltaAutos extends javax.swing.JFrame
 
         try
         {
+
+          
+              if (txtModelo.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(this,"Por favor Ingrese Modelo!");
+                return;
+            }
+
+            if (txtMarca.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "Por favor Ingrese la Marca!");
+                return;
+            }
+            
+          
+            
+            if (txtMotor.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(this,"Por favor Ingrese Motor!");
+                return;
+            }
+            
+              if (txtColor.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "Por favor Ingrese Color!");
+                return;
+            }
+
+            if (txtPatente.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(this,"Por favor Ingrese Patente!");
+                return;
+            }
+            
+            if (txtNumeroPuertas.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(this,"Por favor Ingrese Número de Puertas!");
+                return;
+            }
+            
             //int id = Integer.parseInt(txtId.getText());
             String modelo = txtModelo.getText();
             String marca = txtMarca.getText();
@@ -251,14 +298,15 @@ public class AltaAutos extends javax.swing.JFrame
             String patente = txtPatente.getText();
             int numeroPuertas = Integer.parseInt(txtNumeroPuertas.getText());
             controladora.AgregarAutomovil(modelo, marca, motor, color, patente, numeroPuertas);
-            
+
             JOptionPane.showMessageDialog(null, "Datos Guardado de Forma Exitosa!");
-            
+
             this.LimpiarCampos();
+
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null,"Error en Alta Autos: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error en Alta Autos: " + e.getMessage());
         }
 
 
@@ -271,8 +319,15 @@ public class AltaAutos extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-       LimpiarCampos();
+        LimpiarCampos();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void brnConsultaEditarBajaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_brnConsultaEditarBajaActionPerformed
+    {//GEN-HEADEREND:event_brnConsultaEditarBajaActionPerformed
+        ConsultaAutomovil consultaAutomovil = new ConsultaAutomovil();
+        consultaAutomovil.setVisible(true);
+        consultaAutomovil.setLocationRelativeTo(null);
+    }//GEN-LAST:event_brnConsultaEditarBajaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -308,6 +363,15 @@ public class AltaAutos extends javax.swing.JFrame
         txtMotor.setText("");
         txtNumeroPuertas.setText("");
         txtPatente.setText("");
-        
+
     }
+
 }
+
+//boolean Valida(){
+//    if(txtRFC.getText().equals("")){
+//        javax.swing.JOptionPane.showMessageDialog(this, "Llene todos los campos");
+//        return true;
+//    } 
+//        return false;
+//}//Validaciones
