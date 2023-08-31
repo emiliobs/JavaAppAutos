@@ -36,6 +36,13 @@ public class Principal extends javax.swing.JFrame
         brnConsultaEditarBaja.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         brnConsultaEditarBaja.setForeground(new java.awt.Color(255, 51, 51));
         brnConsultaEditarBaja.setText("Ir a Consulta, Edición y Bajas");
+        brnConsultaEditarBaja.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                brnConsultaEditarBajaActionPerformed(evt);
+            }
+        });
 
         btnAlta.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         btnAlta.setForeground(new java.awt.Color(255, 51, 51));
@@ -81,10 +88,10 @@ public class Principal extends javax.swing.JFrame
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(31, 31, 31)
                                 .addComponent(brnConsultaEditarBaja)
-                                .addGap(46, 46, 46)
+                                .addGap(33, 33, 33)
                                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
@@ -132,6 +139,13 @@ public class Principal extends javax.swing.JFrame
         altaAutos.setVisible(true);
         altaAutos.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAltaActionPerformed
+
+    private void brnConsultaEditarBajaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_brnConsultaEditarBajaActionPerformed
+    {//GEN-HEADEREND:event_brnConsultaEditarBajaActionPerformed
+        ConsultaAutomovil consultaAutomovil = new ConsultaAutomovil();
+        consultaAutomovil.setVisible(true);
+        consultaAutomovil.setLocationRelativeTo(null);
+    }//GEN-LAST:event_brnConsultaEditarBajaActionPerformed
 
    
 //    public static void main(String args[])
