@@ -1,15 +1,15 @@
-
 package com.emisoft.javaappautos.Igu;
 
 import com.emisoft.javaappautos.Logica.Automovil;
 import com.emisoft.javaappautos.Logica.Controladora;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 public class ConsultaAutomovil extends javax.swing.JFrame
 {
-    
+
     Controladora controladora = new Controladora();
 
     public ConsultaAutomovil()
@@ -108,7 +108,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
+                        .addGap(104, 104, 104)
                         .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
         );
@@ -164,7 +164,51 @@ public class ConsultaAutomovil extends javax.swing.JFrame
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarActionPerformed
     {//GEN-HEADEREND:event_btnEliminarActionPerformed
-       
+        try
+        {
+            //Controlar la tbal de que no este vacia:
+            if (tblAutos.getRowCount() > 0)
+            {
+                // Valido que se haya seleccionado un registro a eliminar
+
+                if (tblAutos.getSelectedRow() != -1)
+                {
+                    int salida = JOptionPane.showConfirmDialog(null,
+                            "Desea Borrar el Registro?", "Borrar Autómovil",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE);
+                    if (salida == 0)
+                    {
+                        //Obtner la Id del dato que queiro borrar:
+                        int idAuto = Integer.parseInt(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
+                        controladora.BorrarAutoPorId(idAuto);
+                        MostrarMensajes("Autómovil Borrado de la BD.", "Informacion", "Dato Borrado!");
+                         CargarTabla();
+                    }
+                    else
+                    {
+                        CargarTabla();
+
+                    }
+                    
+                    CargarTabla();
+
+                }
+                else
+                {
+                    MostrarMensajes("No ha Seleccionado Dato ha Eliminar", "Error", "Error: Dato no Seleccionado");
+                }
+            }else
+            {
+                MostrarMensajes("No Existe datos en la BD", "Error", "Tabla sin Datos");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR: en Elininar Auto Consulta Automovile: " + e.getMessage());
+        }
+
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEditarActionPerformed
@@ -174,7 +218,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame
 
     private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalir2ActionPerformed
     {//GEN-HEADEREND:event_btnSalir2ActionPerformed
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
@@ -182,7 +226,6 @@ public class ConsultaAutomovil extends javax.swing.JFrame
         CargarTabla();
     }//GEN-LAST:event_formWindowOpened
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
@@ -198,48 +241,70 @@ public class ConsultaAutomovil extends javax.swing.JFrame
     private void CargarTabla()
     {
         //Hacemos que la tabla no sea editable;
-        DefaultTableModel defaultTableModel =  new DefaultTableModel()
+        DefaultTableModel defaultTableModel = new DefaultTableModel()
         {
             @Override
-             public boolean isCellEditable(int row, int column)
-             {
-                                        
-                 return false;
-             }
+            public boolean isCellEditable(int row, int column)
+            {
+
+                return false;
+            }
         };
-        
+
         //Ponemos titulos a las Columnas de la Tabla:
-        String titulos[] = {"Id", "Modelo", "Marca","Motor", "Color","Patente", "Puertas"};
+        String titulos[] =
+        {
+            "Id", "Modelo", "Marca", "Motor", "Color", "Patente", "Puertas"
+        };
         defaultTableModel.setColumnIdentifiers(titulos);
-        
+
         tblAutos.setModel(defaultTableModel);
-        
-        
+
         //Traer los autos desde la Base de datos:
         List<Automovil> listaAutomoviles = controladora.TrarListaAutomoviles();
-        
-        
+
         //Setaer los datos en la Tabla:
         if (listaAutomoviles != null)
         {
             for (Automovil listaAutomovile : listaAutomoviles)
             {
-               Object[] objects =
-               {
-                   listaAutomovile.getId(), 
-                   listaAutomovile.getModelo(), 
-                   listaAutomovile.getMarca(),
-                   listaAutomovile.getMotor(),
-                   listaAutomovile.getColor(), 
-                   listaAutomovile.getPatente(), 
-                   listaAutomovile.getCantidadDePuerta()
-               };
-               
-               defaultTableModel.addRow(objects);
+                Object[] objects =
+                {
+                    listaAutomovile.getId(),
+                    listaAutomovile.getModelo(),
+                    listaAutomovile.getMarca(),
+                    listaAutomovile.getMotor(),
+                    listaAutomovile.getColor(),
+                    listaAutomovile.getPatente(),
+                    listaAutomovile.getCantidadDePuerta()
+                };
+
+                defaultTableModel.addRow(objects);
             }
         }
-        
+
         tblAutos.setModel(defaultTableModel);
-        
+
     }
+    
+    public void MostrarMensajes(String mensaje, String tipo, String titulo)
+    {
+        JOptionPane optionPane = new JOptionPane(mensaje);
+        if (tipo.equals("Informacion"))
+        {
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+
+        }
+        else if (tipo.equals("Error"))
+        {
+
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+
+        JDialog dialog = optionPane.createDialog(titulo);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+
+    }
+
 }

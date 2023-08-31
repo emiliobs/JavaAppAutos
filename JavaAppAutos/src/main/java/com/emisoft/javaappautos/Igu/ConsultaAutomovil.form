@@ -102,7 +102,7 @@
                               <Component id="btnEditar" min="-2" pref="185" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnEliminar" min="-2" pref="185" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                               <Component id="btnSalir2" min="-2" pref="185" max="-2" attributes="0"/>
                           </Group>
                       </Group>

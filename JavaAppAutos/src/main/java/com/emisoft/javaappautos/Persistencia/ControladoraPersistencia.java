@@ -2,7 +2,10 @@
 package com.emisoft.javaappautos.Persistencia;
 
 import com.emisoft.javaappautos.Logica.Automovil;
+import com.emisoft.javaappautos.Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ControladoraPersistencia
@@ -17,6 +20,18 @@ public class ControladoraPersistencia
     public List<Automovil> TrarListaAutomoviles()
     {
         return automovilJpaController.findAutomovilEntities();
+    }
+
+    public void BorrarAutoPorId(int idAuto)
+    {
+        try
+        {
+            automovilJpaController.destroy(idAuto);
+        }
+        catch (NonexistentEntityException ex)
+        {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     

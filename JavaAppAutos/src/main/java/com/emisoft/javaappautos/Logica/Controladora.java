@@ -26,6 +26,11 @@ public class Controladora
     {
         return controladoraPersistencia.TrarListaAutomoviles();
     }
+
+    public void BorrarAutoPorId(int idAuto)
+    {
+        controladoraPersistencia.BorrarAutoPorId(idAuto);
+    }
     
     
     
