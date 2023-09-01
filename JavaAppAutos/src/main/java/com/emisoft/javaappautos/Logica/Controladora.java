@@ -31,6 +31,25 @@ public class Controladora
     {
         controladoraPersistencia.BorrarAutoPorId(idAuto);
     }
+
+    public Automovil TraerAutomovil(int idAuto)
+    {
+        return controladoraPersistencia.TraerAutomovil(idAuto);
+    }
+
+    public void EditarAutomovil(Automovil automovil, String color, String marca, 
+            String modelo, String motor, int numeroPuertas, String patente)
+    {
+        automovil.setColor(color);
+        automovil.setMarca(marca);
+        automovil.setModelo(modelo);
+        automovil.setMotor(motor);
+        automovil.setCantidadDePuerta(numeroPuertas);
+        automovil.setPatente(patente);
+        
+        controladoraPersistencia.EditarAutomovil(automovil);
+        
+    }
     
     
     

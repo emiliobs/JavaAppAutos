@@ -26,6 +26,8 @@ public class Principal extends javax.swing.JFrame
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
+        setTitle("Principal");
+
         jPanel1.setForeground(new java.awt.Color(0, 255, 204));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Emilio\\Documents\\GitHub\\JavaAppAutos\\JavaAppAutos\\src\\main\\java\\com\\emisoft\\javaappautos\\Igu\\Img\\a-PgqkBf_400x400.jpg")); // NOI18N

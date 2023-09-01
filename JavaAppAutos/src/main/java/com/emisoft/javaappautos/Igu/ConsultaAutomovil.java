@@ -183,14 +183,14 @@ public class ConsultaAutomovil extends javax.swing.JFrame
                         int idAuto = Integer.parseInt(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
                         controladora.BorrarAutoPorId(idAuto);
                         MostrarMensajes("Autómovil Borrado de la BD.", "Informacion", "Dato Borrado!");
-                         CargarTabla();
+                        CargarTabla();
                     }
                     else
                     {
                         CargarTabla();
 
                     }
-                    
+
                     CargarTabla();
 
                 }
@@ -198,7 +198,8 @@ public class ConsultaAutomovil extends javax.swing.JFrame
                 {
                     MostrarMensajes("No ha Seleccionado Dato ha Eliminar", "Error", "Error: Dato no Seleccionado");
                 }
-            }else
+            }
+            else
             {
                 MostrarMensajes("No Existe datos en la BD", "Error", "Tabla sin Datos");
             }
@@ -213,7 +214,37 @@ public class ConsultaAutomovil extends javax.swing.JFrame
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEditarActionPerformed
     {//GEN-HEADEREND:event_btnEditarActionPerformed
-        
+
+        try
+        {
+            if (tblAutos.getRowCount() > 0)
+            {
+                if (tblAutos.getSelectedRow() != -1)
+                {
+
+                        // Aqui obtengo el Id del Auro para liego traer el registro a Editar
+                        int IdAuto = Integer.parseInt(String.valueOf(tblAutos.getValueAt(tblAutos.getSelectedRow(), 0)));
+                        
+                        EditarAutomoviles editarAutomoviles = new EditarAutomoviles(IdAuto);
+                        editarAutomoviles.setVisible(true);
+                        editarAutomoviles.setLocationRelativeTo(null);
+                        
+                        this.dispose();                }
+                else
+                {
+                    MostrarMensajes("No seleccionó un Registro para Editar", "Error", "Error al Editar");
+                }
+            }
+            else
+            {
+                MostrarMensajes("La tbla esta Vacía, no se puede Editar", "Error", "Error al Editar");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR: en Consulta Automoviles Editar: " + e.getMessage());
+        }
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalir2ActionPerformed
@@ -286,7 +317,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame
         tblAutos.setModel(defaultTableModel);
 
     }
-    
+
     public void MostrarMensajes(String mensaje, String tipo, String titulo)
     {
         JOptionPane optionPane = new JOptionPane(mensaje);
