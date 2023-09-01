@@ -213,7 +213,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEditarActionPerformed
     {//GEN-HEADEREND:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalir2ActionPerformed
