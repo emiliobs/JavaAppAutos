@@ -1,5 +1,10 @@
 # Java App Autos
 
+# Requerimiento del proyecto:
+<img width="798" alt="image" src="https://github.com/emiliobs/JavaAppAutos/assets/3122465/33ce7405-462d-4c18-80fb-811a116c4466">
+
+
+
 # Formulario Principal
 <img width="519" alt="image" src="https://github.com/emiliobs/JavaAppAutos/assets/3122465/ed565438-9665-402e-9c81-3ce40723f900">
 
@@ -12,3 +17,7 @@
 
 # Formulario Eliminar Datos
 <img width="1280" alt="image" src="https://github.com/emiliobs/JavaAppAutos/assets/3122465/b1eb61cf-163c-4169-a18c-c2b6d3f78fec">
+
+# Formulario Editar Datos
+<img width="1271" alt="image" src="https://github.com/emiliobs/JavaAppAutos/assets/3122465/ff3f0890-7033-4ab0-8509-b7164e86fd5b">
+
