@@ -12,3 +12,7 @@
 
 # Formulario Eliminar Datos
 <img width="1280" alt="image" src="https://github.com/emiliobs/JavaAppAutos/assets/3122465/b1eb61cf-163c-4169-a18c-c2b6d3f78fec">
+
+# Formulario Editar Datos
+<img width="1271" alt="image" src="https://github.com/emiliobs/JavaAppAutos/assets/3122465/ff3f0890-7033-4ab0-8509-b7164e86fd5b">
+
