@@ -11,9 +11,17 @@ import java.util.logging.Logger;
 
 public class ControladoraPersistencia
 {
-    AutomovilJpaController automovilJpaController = new AutomovilJpaController();
-    UsuarioJpaController usuarioJpaController = new UsuarioJpaController();
+    AutomovilJpaController automovilJpaController =  null;
+    UsuarioJpaController usuarioJpaController = null; 
 
+    public ControladoraPersistencia()
+    {
+        automovilJpaController = new AutomovilJpaController();
+        usuarioJpaController = new UsuarioJpaController();
+    }
+
+    
+    
     public void AgregarAutomovil(Automovil automovil)
     {
         automovilJpaController.create(automovil);

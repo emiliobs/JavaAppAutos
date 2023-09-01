@@ -8,11 +8,12 @@ public class Login extends javax.swing.JFrame
 {
 
     Controladora controladora = null;
-    Usuario usuario = new Usuario();
+    Usuario usuario = null;
 
     public Login()
     {
         controladora = new Controladora();
+        usuario = new Usuario();
         initComponents();
         txtEmail.setText("emilio@yopmail.com");
         txtPassword.setText("123.");

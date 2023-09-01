@@ -8,12 +8,13 @@ public class EditarAutomoviles extends javax.swing.JFrame
 {
 
     Controladora controladora = null;
-    Automovil automovil = new Automovil();
+    Automovil automovil = null;
 
     public EditarAutomoviles(int idAuto)
     {
 
         controladora = new Controladora();
+        automovil = new Automovil();
         initComponents();
 
         CargarAutomoviles(idAuto);

@@ -10,11 +10,12 @@ import javax.swing.table.DefaultTableModel;
 public class ConsultaAutomovil extends javax.swing.JFrame
 {
 
-    Controladora controladora = new Controladora();
+    Controladora controladora = null;
 
     public ConsultaAutomovil()
     {
         initComponents();
+        controladora = new Controladora();
     }
 
     @SuppressWarnings("unchecked")

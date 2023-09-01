@@ -7,7 +7,14 @@ import com.emisoft.javaappautos.Logica.Usuario;
 public class Controladora
 {
 
-    ControladoraPersistencia controladoraPersistencia = new ControladoraPersistencia();
+    ControladoraPersistencia controladoraPersistencia = null;
+
+    public Controladora()
+    {
+        controladoraPersistencia = new ControladoraPersistencia();
+    }
+    
+    
     
     public void AgregarAutomovil(String modelo, String marca, String motor, String color, String patente, int numeroPuertas)
     {
