@@ -302,7 +302,12 @@ public class AltaAutos extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Datos Guardado de Forma Exitosa!");
 
             this.LimpiarCampos();
-
+            
+            ConsultaAutomovil consultaAutomovil = new ConsultaAutomovil();
+            consultaAutomovil.setVisible(true);
+            consultaAutomovil.setLocationRelativeTo(null);
+            
+            this.dispose();
         }
         catch (Exception e)
         {
@@ -327,6 +332,8 @@ public class AltaAutos extends javax.swing.JFrame
         ConsultaAutomovil consultaAutomovil = new ConsultaAutomovil();
         consultaAutomovil.setVisible(true);
         consultaAutomovil.setLocationRelativeTo(null);
+        
+        dispose();
     }//GEN-LAST:event_brnConsultaEditarBajaActionPerformed
 
 

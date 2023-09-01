@@ -28,8 +28,9 @@ public class ConsultaAutomovil extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAutos = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        btnAlta = new javax.swing.JButton();
         btnSalir2 = new javax.swing.JButton();
+        btnEditar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter()
@@ -72,14 +73,14 @@ public class ConsultaAutomovil extends javax.swing.JFrame
             }
         });
 
-        btnEditar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(255, 51, 51));
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener()
+        btnAlta.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        btnAlta.setForeground(new java.awt.Color(255, 51, 51));
+        btnAlta.setText("Alta Automoviles");
+        btnAlta.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnEditarActionPerformed(evt);
+                btnAltaActionPerformed(evt);
             }
         });
 
@@ -94,22 +95,33 @@ public class ConsultaAutomovil extends javax.swing.JFrame
             }
         });
 
+        btnEditar1.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        btnEditar1.setForeground(new java.awt.Color(255, 51, 51));
+        btnEditar1.setText("Editar");
+        btnEditar1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnEditar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(19, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104)
-                        .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEditar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnSalir2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(16, 16, 16))
         );
         jPanel2Layout.setVerticalGroup(
@@ -119,9 +131,10 @@ public class ConsultaAutomovil extends javax.swing.JFrame
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
@@ -212,9 +225,29 @@ public class ConsultaAutomovil extends javax.swing.JFrame
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEditarActionPerformed
-    {//GEN-HEADEREND:event_btnEditarActionPerformed
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAltaActionPerformed
+    {//GEN-HEADEREND:event_btnAltaActionPerformed
 
+       AltaAutos altaAutos = new AltaAutos();
+       altaAutos.setVisible(true);
+       altaAutos.setLocationRelativeTo(null);
+       
+       dispose();
+
+    }//GEN-LAST:event_btnAltaActionPerformed
+
+    private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalir2ActionPerformed
+    {//GEN-HEADEREND:event_btnSalir2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalir2ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        CargarTabla();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEditar1ActionPerformed
+    {//GEN-HEADEREND:event_btnEditar1ActionPerformed
         try
         {
             if (tblAutos.getRowCount() > 0)
@@ -244,22 +277,12 @@ public class ConsultaAutomovil extends javax.swing.JFrame
         {
             System.out.println("ERROR: en Consulta Automoviles Editar: " + e.getMessage());
         }
-
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnSalir2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalir2ActionPerformed
-    {//GEN-HEADEREND:event_btnSalir2ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnSalir2ActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
-    {//GEN-HEADEREND:event_formWindowOpened
-        CargarTabla();
-    }//GEN-LAST:event_formWindowOpened
+    }//GEN-LAST:event_btnEditar1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnEditar1;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JLabel jLabel3;
@@ -287,6 +310,7 @@ public class ConsultaAutomovil extends javax.swing.JFrame
         {
             "Id", "Modelo", "Marca", "Motor", "Color", "Patente", "Puertas"
         };
+        
         defaultTableModel.setColumnIdentifiers(titulos);
 
         tblAutos.setModel(defaultTableModel);

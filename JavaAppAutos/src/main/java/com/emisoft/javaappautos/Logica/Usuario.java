@@ -1,6 +1,7 @@
 
 package com.emisoft.javaappautos.Logica;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario
+public class Usuario implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -16,26 +17,16 @@ public class Usuario
     
     @Basic
     private String email;
-    private int password;
+    private String password;
 
     public Usuario()
     {
     }
 
-    public Usuario(int id, String email, int password)
+    public Usuario(int id, String email, String password)
     {
         this.id = id;
         this.email = email;
-        this.password = password;
-    }
-
-    public int getPassword()
-    {
-        return password;
-    }
-
-    public void setPassword(int password)
-    {
         this.password = password;
     }
 
@@ -58,8 +49,18 @@ public class Usuario
     {
         this.email = email;
     }
-    
-    
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
+
+   
     
     
 }

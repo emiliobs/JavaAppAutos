@@ -2,6 +2,7 @@
 package com.emisoft.javaappautos.Persistencia;
 
 import com.emisoft.javaappautos.Logica.Automovil;
+import com.emisoft.javaappautos.Logica.Usuario;
 import com.emisoft.javaappautos.Persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
 public class ControladoraPersistencia
 {
     AutomovilJpaController automovilJpaController = new AutomovilJpaController();
+    UsuarioJpaController usuarioJpaController = new UsuarioJpaController();
 
     public void AgregarAutomovil(Automovil automovil)
     {
@@ -50,6 +52,11 @@ public class ControladoraPersistencia
         {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public List<Usuario> FindUserByEmailAndPassword()
+    {
+         return usuarioJpaController.findUsuarioEntities();
     }
 
     

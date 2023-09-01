@@ -3,6 +3,7 @@
   <persistence-unit name="AutoPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.emisoft.javaappautos.Logica.Automovil</class>
+    <class>com.emisoft.javaappautos.Logica.Usuario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/automovil?ServerTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

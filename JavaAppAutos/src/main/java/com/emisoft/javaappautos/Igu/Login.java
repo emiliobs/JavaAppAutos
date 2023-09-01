@@ -1,13 +1,21 @@
 package com.emisoft.javaappautos.Igu;
 
+import com.emisoft.javaappautos.Logica.Controladora;
+import com.emisoft.javaappautos.Logica.Usuario;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame
 {
 
+    Controladora controladora = null;
+    Usuario usuario = new Usuario();
+
     public Login()
     {
+        controladora = new Controladora();
         initComponents();
+        txtEmail.setText("emilio@yopmail.com");
+        txtPassword.setText("123.");
     }
 
     @SuppressWarnings("unchecked")
@@ -37,8 +45,11 @@ public class Login extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(0, 0, 0));
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
         jSeparator1.setBackground(new java.awt.Color(255, 51, 0));
 
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
@@ -137,18 +148,17 @@ public class Login extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -161,10 +171,10 @@ public class Login extends javax.swing.JFrame
                 .addGap(116, 116, 116)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin1)
-                    .addComponent(btnExit)
-                    .addComponent(btnClean))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogin1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnClean, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -206,24 +216,46 @@ public class Login extends javax.swing.JFrame
 
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLogin1ActionPerformed
     {//GEN-HEADEREND:event_btnLogin1ActionPerformed
+        
+        
         if (txtEmail.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null,"Please, Enter an Email.");
+            JOptionPane.showMessageDialog(null, "Please, Enter an Email.");
             return;
         }
-        
+
         if (txtPassword.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "Please, Enter a Password.");
             return;
         }
-        
-        Principal principal = new Principal();
-        principal.setVisible(true);
-        principal.setLocationRelativeTo(null);
-        
+
+        try
+        {
+            usuario = controladora.FindUserByEmailAndPassword(txtEmail.getText(), txtPassword.getText());
+
+          
+            if (usuario != null)
+
+            {
+                Principal principal = new Principal();
+                principal.setVisible(true);
+                principal.setLocationRelativeTo(null);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Sorry!, Email or Password Invalid.");
+                return;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("ERROR en Login: " + e.getMessage());
+
+        }
+
         this.dispose();
-                
+
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
 
